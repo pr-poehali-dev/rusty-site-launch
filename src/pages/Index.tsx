@@ -1,24 +1,29 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
   const [showScreamer, setShowScreamer] = useState(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
 
   const handleButtonClick = () => {
     setShowScreamer(true);
-    if (audioRef.current) {
-      audioRef.current.volume = 1.0;
-      audioRef.current.play().catch(err => console.log('Audio play failed:', err));
-    }
+    
+    const audio = new Audio();
+    audio.volume = 1.0;
+    audio.loop = true;
+    
+    audio.src = 'https://www.youtube.com/watch?v=uchyWCdA5Nc';
+    
+    audio.play().catch(() => {
+      const iframe = document.createElement('iframe');
+      iframe.style.position = 'fixed';
+      iframe.style.top = '-9999px';
+      iframe.style.left = '-9999px';
+      iframe.src = 'https://www.youtube.com/embed/uchyWCdA5Nc?autoplay=1&loop=1&playlist=uchyWCdA5Nc';
+      iframe.allow = 'autoplay';
+      document.body.appendChild(iframe);
+    });
   };
-
-  useEffect(() => {
-    if (showScreamer && audioRef.current) {
-      audioRef.current.play().catch(err => console.log('Audio play failed:', err));
-    }
-  }, [showScreamer]);
 
   return (
     <div className="min-h-screen bg-[#0f0f0f] dark">
@@ -90,18 +95,11 @@ const Index = () => {
             </div>
           </div>
         ) : (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black animate-[slide-in_0.1s_ease-out]">
+          <div className="fixed inset-0 z-[100] bg-black animate-[slide-in_0.1s_ease-out]">
             <img 
               src="https://media1.tenor.com/m/HMtY33kDWFwAAAAC/donk.gif" 
               alt="Screamer"
               className="w-full h-full object-cover"
-            />
-            
-            <iframe
-              ref={audioRef as any}
-              className="hidden"
-              src="https://www.youtube.com/embed/uchyWCdA5Nc?autoplay=1&loop=1&playlist=uchyWCdA5Nc&volume=100"
-              allow="autoplay; encrypted-media"
             />
           </div>
         )}
