@@ -9,7 +9,7 @@ const Index = () => {
     <div className="min-h-screen bg-[#0f0f0f] dark">
       <header className="fixed top-0 left-0 right-0 bg-[#0f0f0f] border-b border-[#303030] z-50">
         <div className="flex items-center justify-between px-6 py-3">
-          <div className="flex items-center gap-2">
+<div className="flex items-center gap-2">
             <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
               <Icon name="Play" size={20} className="text-white fill-white" />
             </div>
@@ -17,6 +17,15 @@ const Index = () => {
               Ржавый.com
             </h1>
           </div>
+          
+          <a 
+            href="https://semerkargaviy789.ru" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-sm text-gray-400 hover:text-primary transition-colors"
+          >
+            semerkargaviy789
+          </a>
         </div>
       </header>
 
@@ -31,16 +40,17 @@ const Index = () => {
                 strokeWidth={3}
               />
               
-              <Button
-                onClick={() => setShowVideo(true)}
-                size="lg"
-                className="px-12 py-8 text-2xl md:text-3xl font-bold bg-primary hover:bg-primary/90 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-105"
-                style={{
-                  animation: 'pulse-glow 2s ease-in-out infinite'
-                }}
-              >
-                Рыжий, нажми сюда
-              </Button>
+<a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer">
+                <Button
+                  size="lg"
+                  className="px-12 py-8 text-2xl md:text-3xl font-bold bg-primary hover:bg-primary/90 text-white rounded-full shadow-2xl transition-all duration-300 hover:scale-105"
+                  style={{
+                    animation: 'pulse-glow 2s ease-in-out infinite'
+                  }}
+                >
+                  Рыжий, нажми сюда
+                </Button>
+              </a>
 
               <Icon 
                 name="ChevronLeft" 
