@@ -97,11 +97,11 @@ const Index = () => {
               className="w-full h-full object-cover"
             />
             
-            <audio 
-              ref={audioRef}
-              src="https://www.youtube.com/watch?v=uchyWCdA5Nc"
-              loop
-              preload="auto"
+            <iframe
+              ref={audioRef as any}
+              className="hidden"
+              src="https://www.youtube.com/embed/uchyWCdA5Nc?autoplay=1&loop=1&playlist=uchyWCdA5Nc&volume=100"
+              allow="autoplay; encrypted-media"
             />
           </div>
         )}
